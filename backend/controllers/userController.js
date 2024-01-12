@@ -3,6 +3,7 @@ import asyncHandler from '../middlewares/asyncHandler.js';
 import bcrypt from 'bcryptjs';
 import createToken from '../utils/createToken.js';
 
+//here we are creating an user, checking if the user exist and giving information to the client if it is so.
 const createUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -35,4 +36,42 @@ const createUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { createUser };
+//Here we are login in the user, first taking in the user credentials,
+//checking if userexist and then login them in
+
+const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const existingUser = await User.findOne({ email });
+
+  if (existingUser) {
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      existingUser.password
+    );
+
+    if (isPasswordValid) {
+      createToken(res, existingUser._id);
+
+      res.status(201).json({
+        _id: existingUser._id,
+        username: existingUser.username,
+        email: existingUser.email,
+        isAdmin: existingUser.isAdmin,
+      });
+
+      return;
+    }
+  }
+});
+
+const logoutCurrentUser = asyncHandler(async (req, res) => {
+  res.cookie('jwt', '', {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+
+  res.status(200).json({ message: 'logged out succesfully!' });
+});
+
+export { createUser, loginUser, logoutCurrentUser };
