@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// setting up the intial state and getting userInfo if it exists
 const initialState = {
   userInfo: localStorage.getItem('userInfo')
     ? JSON.parse(localStorage.getItem('userInfo'))
