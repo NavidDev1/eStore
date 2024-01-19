@@ -34,9 +34,11 @@ export default function Navigation() {
     setShowSidebar(false);
   };
 
+  // Accessing Redux functionalities
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Fetching data using our custom mutation hook
   const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
