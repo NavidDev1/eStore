@@ -12,10 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Navigation.css';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  useLoginMutation,
-  useLogoutMutation,
-} from '../../redux/api/userApiSlice';
+import { useLogoutMutation } from '../../redux/api/userApiSlice';
 import { logout } from '../../redux/features/auth/authSlice';
 
 export default function Navigation() {
