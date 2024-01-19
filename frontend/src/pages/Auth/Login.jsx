@@ -35,6 +35,7 @@ const Login = () => {
       const res = await login({ email, password }).unwrap();
       console.log(res);
       dispatch(setCredientials({ ...res })); // Dispatch an action to set user credentials in the Redux store
+      toast.success('Happy Shopping!');
     } catch (error) {
       toast.error(error?.data?.message || error.message); //Display an error toast with a specific message, if available
     }
@@ -42,11 +43,11 @@ const Login = () => {
 
   return (
     <div>
-      <section className='pl-[10rem] flex flex-wrap'>
-        <div className='mr-[4rem] mt-[5rem]'>
-          <h1 className='text-2xl font-semibold mb-4'> Sign In</h1>
+      <section className='pl-[10rem] flex justify-center items-center min-h-screen'>
+        <div className='bg-white p-8 border rounded-lg shadow-md'>
+          <h1 className='text-2xl font-semibold mb-4'>Sign In</h1>
 
-          <form onSubmit={submitHandler} className='container w-[40rem]'>
+          <form onSubmit={submitHandler} className='container w-[20rem]'>
             <div className='my-[2rem]'>
               <label
                 htmlFor='email'
@@ -83,7 +84,7 @@ const Login = () => {
             <button
               disabled={isLoading}
               type='submit'
-              className='bg-yellow-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]'
+              className='bg-green-800 text-white px-4 py-2 rounded cursor-pointer my-[1rem]'
             >
               {isLoading ? 'Signing in...' : 'Sign in'}
             </button>
@@ -96,7 +97,7 @@ const Login = () => {
               New Customer = {''}
               <Link
                 to={redirect ? `/register?redirect=${redirect}` : '/register'}
-                className='="text-pink-500 hover:underline'
+                className='text-pink-500 hover:underline'
               >
                 Register
               </Link>
