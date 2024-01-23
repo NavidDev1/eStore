@@ -29,7 +29,7 @@ app.use(cookieParser());
 // routes for users, categories, and products
 app.use('/api/users', userRoutes);
 app.use('/api/category', categoryRoutes);
-app.use('/api/product', productRoutes);
+app.use('/api/products', productRoutes);
 
 // Start the server and listen for incoming requests on the specified port
 app.listen(port, () => console.log(`Server is running on port : ${port}`));
