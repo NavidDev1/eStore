@@ -3,8 +3,10 @@ import Product from '../models/productModel.js';
 
 const addProduct = asyncHandler(async (req, res) => {
   try {
+    // Destructuring fields from request
     const { name, description, price, category, quantity, brand } = req.fields;
-    //validation
+
+    //validation checks
     switch (true) {
       case !name:
         return res.json({ error: 'Name i required' });
@@ -20,6 +22,7 @@ const addProduct = asyncHandler(async (req, res) => {
         return res.json({ error: 'Category i required' });
     }
 
+    // Create a new product and save to database
     const product = new Product({ ...req.fields });
     await product.save();
     res.json(product);
@@ -29,10 +32,13 @@ const addProduct = asyncHandler(async (req, res) => {
   }
 });
 
+// Update product details by ID
 const updateProductDetails = asyncHandler(async (req, res) => {
   try {
+    // Destructuring fields from request
     const { name, description, price, category, quantity, brand } = req.fields;
-    //validation
+
+    //validation checks
     switch (true) {
       case !name:
         return res.json({ error: 'Name i required' });
@@ -48,6 +54,7 @@ const updateProductDetails = asyncHandler(async (req, res) => {
         return res.json({ error: 'Category i required' });
     }
 
+    // Find and update product details by ID
     const product = await Product.findByIdAndUpdate(
       req.params.id,
       { ...req.fields },
@@ -63,6 +70,7 @@ const updateProductDetails = asyncHandler(async (req, res) => {
   }
 });
 
+// Remove product by ID
 const removeProduct = asyncHandler(async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete(req.params.id);
@@ -74,6 +82,7 @@ const removeProduct = asyncHandler(async (req, res) => {
   }
 });
 
+// Fetch products with optional keyword search
 const fetchProducts = asyncHandler(async (req, res) => {
   try {
     const pageSize = 6;
