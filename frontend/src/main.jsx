@@ -21,6 +21,9 @@ import Profile from './pages/User/Profile.jsx';
 import AdminRoute from './pages/Admin/AdminRoute.jsx';
 import UserList from './pages/Admin/UserList.jsx';
 import CategoryList from './pages/Admin/CategoryList.jsx';
+import ProductList from './pages/Admin/ProductList.Jsx';
+import ProductUpdate from './pages/Admin/ProductUpdate.jsx';
+import AllProducts from './pages/Admin/AllProducts.jsx';
 
 // Setting up React Router and rendering the application
 const router = createBrowserRouter(
@@ -32,11 +35,14 @@ const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
       </Route>
-      {/* Admin Routes*/}
 
+      {/* Admin Routes*/}
       <Route path='/admin' element={<AdminRoute />}>
         <Route path='userlist' element={<UserList />} />
         <Route path='categorylist' element={<CategoryList />} />
+        <Route path='productlist/' element={<ProductList />} />
+        <Route path='allproductslist' element={<AllProducts />} />
+        <Route path='product/update/:_id' element={<ProductUpdate />} />
       </Route>
     </Route>
   )

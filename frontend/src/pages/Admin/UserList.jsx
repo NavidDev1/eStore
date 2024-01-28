@@ -8,7 +8,7 @@ import {
 } from '../../redux/api/userApiSlice'; // API query and mutation hooks
 import { useEffect, useState } from 'react'; // React hooks for side effects and state
 import Message from '../../components/Message'; // Component for displaying messages
-
+import AdminMenu from './AdminMenu';
 const UserList = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery(); // Fetching users data
   const [deleteUser] = useDeleteUserMutation(); // Mutation hook for deleting a user
@@ -64,7 +64,7 @@ const UserList = () => {
         </Message>
       ) : (
         <div className='flex flex-col md:flex-row'>
-          {/* <AdminMenu /> */}
+          <AdminMenu />
           <table className='w-full md:w-4/5 mx-auto'>
             <thead>
               <tr>
