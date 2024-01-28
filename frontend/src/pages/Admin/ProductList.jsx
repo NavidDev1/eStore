@@ -22,7 +22,7 @@ const ProductList = () => {
   const [price, setPrice] = useState(0);
 
   const { data: categories } = useFetchCategoriesQuery();
-  const [useUploadProductImage] = useUploadProductImageMutation();
+  const [uploadProductImage] = useUploadProductImageMutation();
   const [createProduct] = useCreateProductMutation();
 
   const uploadFileHandler = async (e) => {

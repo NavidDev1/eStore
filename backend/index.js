@@ -37,11 +37,5 @@ app.use('/api/upload', uploadRoutes);
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname + '/uploads')));
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something went wrong!');
-});
-
 // Start the server and listen for incoming requests on the specified port
 app.listen(port, () => console.log(`Server is running on port : ${port}`));
