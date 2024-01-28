@@ -50,7 +50,7 @@ const AdminMenu = () => {
                   color: isActive ? 'greenyellow' : 'white',
                 })}
               >
-                Create Category
+                Create New Category
               </NavLink>
             </li>
             <li>
@@ -61,7 +61,7 @@ const AdminMenu = () => {
                   color: isActive ? 'greenyellow' : 'white',
                 })}
               >
-                Create Product
+                Create New Product
               </NavLink>
             </li>
             <li>
@@ -72,7 +72,7 @@ const AdminMenu = () => {
                   color: isActive ? 'greenyellow' : 'white',
                 })}
               >
-                All Products
+                Show All Products
               </NavLink>
             </li>
             <li>
