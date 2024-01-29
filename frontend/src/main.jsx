@@ -7,7 +7,7 @@ import { Route, RouterProvider, createRoutesFromElements } from 'react-router';
 import { createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/features/store.js';
-
+import Home from './Home.jsx';
 //Private Route
 import PrivateRoute from './components/PrivateRoute.jsx';
 
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<App />}>
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
-
+      <Route index={true} path='/' element={<Home />} />
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
       </Route>
