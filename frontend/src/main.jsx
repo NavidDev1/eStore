@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute.jsx';
 //Auth
 import Login from './pages/Auth/Login.jsx';
 import Register from './pages/Auth/Register.jsx';
-
+import ProductDetails from './pages/Products/ProductDetails.jsx';
 import Profile from './pages/User/Profile.jsx';
 
 //Admin Route
@@ -32,6 +32,7 @@ const router = createBrowserRouter(
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route index={true} path='/' element={<Home />} />
+      <Route path='/product/:id' element={<ProductDetails />} />
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
       </Route>
