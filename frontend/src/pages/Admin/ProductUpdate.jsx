@@ -66,7 +66,7 @@ const ProductUpdate = () => {
       });
       setImage(res.image);
     } catch (err) {
-      toast.success('Item added successfully', {
+      toast.error('Could not add item', {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
       });
@@ -81,7 +81,7 @@ const ProductUpdate = () => {
       if (!answer) return;
 
       const { data } = await deleteProduct(params._id);
-      toast.success(`"${data.name}" is deleted`, {
+      toast.success(`${data.name}" is deleted`, {
         position: toast.POSITION.TOP_RIGHT,
         autoClose: 2000,
       });
@@ -137,7 +137,7 @@ const ProductUpdate = () => {
       <div className='flex flex-col md:flex-row'>
         <AdminMenu />
         <div className='md:w-3/4 p-3'>
-          <div className='text-2xl mb-4'>Create Product</div>
+          <div className='text-2xl mb-4'>Update Product</div>
 
           {image && (
             <div className='text-center'>
