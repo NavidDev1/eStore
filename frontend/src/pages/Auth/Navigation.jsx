@@ -218,10 +218,10 @@ export default function Navigation() {
         </div>
       </div>
       <div
-        className='flex-col justify-between p-4 text-white text-center bg-gradient-to-r from-green-400 to-green-600'
+        className='flex-col justify-between p-4 text-white text-center bg-gradient-to-r from-green-600 to-green-400'
         style={{ marginBottom: '10px' }}
       >
-        <h1 className='flex-col justify-between p-4 text-white bg-gradient-to-r from-green-400 to-green-600 text-2xl font-semibold'>
+        <h1 className='flex-col justify-between p-4 text-white bg-gradient-to-r from-green-600 to-green-400 text-2xl font-semibold'>
           Health-Foodshop
         </h1>
       </div>
