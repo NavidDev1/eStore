@@ -75,10 +75,10 @@ const ProductList = () => {
   };
   return (
     <div className='container mx-auto px-4 sm:px-6 lg:px-8 mt-6'>
-      <div className='flex flex-col md:flex-row'>
+      <div className='flex flex-col md:flex-row justify-center'>
         <AdminMenu />
         <div className='md:w-3/4 p-3'>
-          <div className='text-2xl mb-4'>Create Product</div>
+          <div className='text-2xl mb-4 text-center'>Create a new product</div>
 
           {imageUrl && (
             <div className='text-center'>
@@ -91,8 +91,8 @@ const ProductList = () => {
           )}
 
           <div className='mb-3'>
-            <label className='border text-green px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11'>
-              {image ? image.name : 'Upload Image'}
+            <label className='border text-white bg-green-400 hover:bg-green-700 px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11'>
+              {image ? image.name : 'Upload Image Here'}
               <input
                 type='file'
                 name='image'
@@ -110,7 +110,7 @@ const ProductList = () => {
               </label>
               <input
                 type='text'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -121,7 +121,7 @@ const ProductList = () => {
               </label>
               <input
                 type='number'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
@@ -135,7 +135,7 @@ const ProductList = () => {
               </label>
               <input
                 type='number'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
               />
@@ -146,7 +146,7 @@ const ProductList = () => {
               </label>
               <input
                 type='text'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               />
@@ -158,7 +158,7 @@ const ProductList = () => {
           </label>
           <textarea
             type='text'
-            className='p-2 w-full border rounded-lg bg-[#101011] text-white'
+            className='p-2 w-full border rounded-lg'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
@@ -170,7 +170,7 @@ const ProductList = () => {
               </label>
               <input
                 type='text'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 value={stock}
                 onChange={(e) => setStock(e.target.value)}
               />
@@ -181,7 +181,7 @@ const ProductList = () => {
               </label>
               <select
                 placeholder='Choose Category'
-                className='p-4 w-full border rounded-lg bg-[#101011] text-white'
+                className='p-4 w-full border rounded-lg'
                 onChange={(e) => setCategory(e.target.value)}
               >
                 {categories?.map((c) => (
@@ -195,7 +195,7 @@ const ProductList = () => {
 
           <button
             onClick={handleSubmit}
-            className='py-4 px-10 mt-5 rounded-lg text-lg font-bold bg-pink-600'
+            className='py-4 px-10 mt-5 rounded-lg text-lg font-bold text-white bg-green-400 hover:bg-green-600'
           >
             Submit
           </button>
