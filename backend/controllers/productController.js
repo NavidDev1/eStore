@@ -38,35 +38,44 @@ const updateProductDetails = asyncHandler(async (req, res) => {
     // Destructuring fields from request
     const { name, description, price, category, quantity, brand } = req.fields;
 
-    //validation checks
+    // Validation checks
     switch (true) {
       case !name:
-        return res.json({ error: 'Name i required' });
+        return res.json({ error: 'Name is required' });
       case !brand:
-        return res.json({ error: 'Brand i required' });
+        return res.json({ error: 'Brand is required' });
       case !description:
-        return res.json({ error: 'Description i required' });
+        return res.json({ error: 'Description is required' });
       case !price:
-        return res.json({ error: 'Price i required' });
+        return res.json({ error: 'Price is required' });
       case !quantity:
-        return res.json({ error: 'Quantity i required' });
+        return res.json({ error: 'Quantity is required' });
       case !category:
-        return res.json({ error: 'Category i required' });
+        return res.json({ error: 'Category is required' });
     }
 
     // Find and update product details by ID
     const product = await Product.findByIdAndUpdate(
       req.params.id,
-      { ...req.fields },
+      {
+        name,
+        description,
+        price,
+        category,
+        quantity,
+        brand,
+      },
       { new: true }
     );
 
-    await product.save();
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
 
     res.json(product);
   } catch (error) {
-    console.error;
-    res.status(400).json(error.message);
+    console.error(error);
+    res.status(400).json({ error: 'Update failed. Try again.' });
   }
 });
 

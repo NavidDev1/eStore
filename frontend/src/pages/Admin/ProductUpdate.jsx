@@ -26,7 +26,9 @@ const ProductUpdate = () => {
   );
   const [price, setPrice] = useState(productData?.price || '');
   const [category, setCategory] = useState(productData?.category || '');
-  const [stock, setStock] = useState(productData?.countInStock || '');
+  const [countInStock, setCountInStock] = useState(
+    productData?.countInStock || ''
+  );
   const [brand, setBrand] = useState(productData?.brand || '');
 
   // hook
@@ -52,6 +54,7 @@ const ProductUpdate = () => {
       setQuantity(productData.quantity);
       setBrand(productData.brand);
       setImage(productData.image);
+      setCountInStock(productData.countInStock);
     }
   }, [productData]);
 
@@ -106,7 +109,6 @@ const ProductUpdate = () => {
       formData.append('category', category);
       formData.append('quantity', quantity);
       formData.append('brand', brand);
-      formData.append('countInStock', stock);
 
       // Update product using the Query mutation
       const data = await updateProduct({ productId: params._id, formData });
@@ -230,8 +232,8 @@ const ProductUpdate = () => {
               <input
                 type='text'
                 className='p-4 w-full border rounded-lg bg-[#101011] text-white'
-                value={stock}
-                onChange={(e) => setStock(e.target.value)}
+                value={countInStock}
+                onChange={(e) => setCountInStock(e.target.value)}
               />
             </div>
             <div>

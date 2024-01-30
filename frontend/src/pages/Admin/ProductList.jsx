@@ -16,7 +16,7 @@ const ProductList = () => {
   const [category, setCategory] = useState('');
   const [quantity, setQuantity] = useState('');
   const [brand, setBrand] = useState('');
-  const [stock, setStock] = useState(0);
+  const [countInStock, setCountInStock] = useState(0);
   const [imageUrl, setImageUrl] = useState(null);
   const navigate = useNavigate();
   const [price, setPrice] = useState(0);
@@ -48,6 +48,17 @@ const ProductList = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log('Submitting product:', {
+      name,
+      description,
+      image,
+      price,
+      category,
+      brand,
+      countInStock,
+      quantity,
+    });
+
     try {
       // Create a FormData object and append product details
       const productData = new FormData();
@@ -58,9 +69,10 @@ const ProductList = () => {
       productData.append('category', category);
       productData.append('quantity', quantity);
       productData.append('brand', brand);
-      productData.append('countInStock', stock);
+      productData.append('countInStock', countInStock);
 
       const { data } = await createProduct(productData);
+      console.log('Server response:', data);
 
       if (data.error) {
         toast.error('Product create failed. Try Again.');
@@ -171,8 +183,8 @@ const ProductList = () => {
               <input
                 type='text'
                 className='p-4 w-full border rounded-lg'
-                value={stock}
-                onChange={(e) => setStock(e.target.value)}
+                value={countInStock}
+                onChange={(e) => setCountInStock(e.target.value)}
               />
             </div>
             <div>
