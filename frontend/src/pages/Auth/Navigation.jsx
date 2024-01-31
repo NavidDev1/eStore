@@ -22,6 +22,8 @@ export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showSidebar, setShowsidebar] = useState(false);
 
+  const { cartItems } = useSelector((state) => state.cart);
+
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -82,6 +84,15 @@ export default function Navigation() {
           >
             <AiOutlineShoppingCart className='mr-2 mt-[3rem]' size={26} />
             <span className='hidden nav-item-name mt-[3rem]'>CART</span>{' '}
+            <div className='absolute top-9'>
+              {cartItems.length > 0 && (
+                <span>
+                  <span className='px1- py-0 text-sm text-white bg-orange-400 rounded-full'>
+                    {cartItems.reduce((a, c) => a + c.qty, 0)}
+                  </span>
+                </span>
+              )}
+            </div>
           </Link>
 
           <Link
@@ -218,10 +229,10 @@ export default function Navigation() {
         </div>
       </div>
       <div
-        className='flex-col justify-between p-4 text-white text-center bg-gradient-to-r from-green-400 to-green-600'
+        className='flex-col justify-between p-4 text-white text-center bg-gradient-to-r from-green-600 to-green-400'
         style={{ marginBottom: '10px' }}
       >
-        <h1 className='flex-col justify-between p-4 text-white bg-gradient-to-r from-green-400 to-green-600 text-2xl font-semibold'>
+        <h1 className='flex-col justify-between p-4 text-white bg-gradient-to-r from-green-600 to-green-400 text-2xl font-semibold'>
           Health-Foodshop
         </h1>
       </div>
