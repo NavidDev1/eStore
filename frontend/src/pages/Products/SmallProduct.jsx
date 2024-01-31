@@ -18,7 +18,7 @@ const SmallProduct = ({ product }) => {
           <h2 className='flex justify-between items-center'>
             <div>{product.name}</div>
             <span className='bg-orange-500 text-white text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300'>
-              ${product.price}
+              {product.price}Kr
             </span>
           </h2>
         </Link>

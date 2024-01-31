@@ -90,7 +90,7 @@ const Products = () => {
               <p className='my-4 xl:w-[35rem] lg:w-[35] md:w-[30rem] text-[#B0B0B0]'>
                 {product.description}
               </p>
-              <p className='text-5xl my-4 font-extrabold'>${product.price}</p>
+              <p className='text-5xl my-4 font-extrabold'>{product.price}Kr</p>
 
               <div className='flex justify-between flex-wrap'>
                 <Rating

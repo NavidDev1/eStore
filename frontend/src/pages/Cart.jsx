@@ -4,20 +4,27 @@ import { FaTrash } from 'react-icons/fa';
 import { addToCart, removeFromCart } from '../redux/api/cartSlice';
 
 const Cart = () => {
+  // Access the navigation object to redirect user
   const navigate = useNavigate();
+  // Access the dispatch function to dispatch actions
   const dispatch = useDispatch();
 
+  // Access the cart state from the Redux store
   const cart = useSelector((state) => state.cart);
+  // Destructure the cartItems from the cart state
   const { cartItems } = cart;
 
+  // Function to handle adding a product to the cart
   const addToCartHandler = (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
   };
 
+  // Function to handle removing a product from the cart
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
 
+  // Function to handle the checkout process and Redirect the user to the login page with a redirect parameter
   const checkoutHandler = () => {
     navigate('/login?redirect=/shipping');
   };
@@ -54,7 +61,7 @@ const Cart = () => {
 
                 <div className='text-gray-500'>{item.brand}</div>
                 <div className='font-semibold text-gray-800'>
-                  $ {item.price}
+                  Sek {item.price}
                 </div>
               </div>
 
