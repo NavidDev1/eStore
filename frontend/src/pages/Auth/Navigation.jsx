@@ -69,14 +69,13 @@ export default function Navigation() {
             <AiOutlineHome className='mr-2 mt-[3rem]' size={26} />
             <span className='hidden nav-item-name mt-[3rem]'>HOME</span>{' '}
           </Link>
-
-          <Link
+          {/* <Link
             to='/shop'
             className='flex items-center transition-transform transform hover:translate-x-2'
           >
             <AiOutlineShopping className='mr-2 mt-[3rem]' size={26} />
             <span className='hidden nav-item-name mt-[3rem]'>SHOP</span>{' '}
-          </Link>
+          </Link>*/}
 
           <Link
             to='/cart'
@@ -95,7 +94,7 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <Link
+          {/*  <Link
             to='/favorite'
             className='flex items-center transition-transform transform hover:translate-x-2'
           >
@@ -103,7 +102,7 @@ export default function Navigation() {
             <span className='hidden nav-item-name mt-[3rem]'>
               Favorite
             </span>{' '}
-          </Link>
+          </Link>*/}
         </div>
         <div className='realative'>
           <button
@@ -233,7 +232,7 @@ export default function Navigation() {
         style={{ marginBottom: '10px' }}
       >
         <h1 className='flex-col justify-between p-4 text-white bg-gradient-to-r from-green-600 to-green-400 text-2xl font-semibold'>
-          Health-Foodshop
+          HealtyFood
         </h1>
       </div>
     </>
